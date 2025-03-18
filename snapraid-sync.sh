@@ -4,7 +4,7 @@
 source .env  
 
 # Construct Gotify URL from .env vars
-GOTIFY_URL="$GOTIFY_SERVER_URL/message?token=$GOTIFY_TOKEN"
+GOTIFY_URL="${GOTIFY_SERVER_URL}/message?token=${GOTIFY_TOKEN}"
 
 # Run SnapRAID sync and capture exit code
 snapraid sync
@@ -22,4 +22,4 @@ else
 fi
 
 # Send notification using Gotify
-curl "$GOTIFY_URL" -F "title=$title" -F "message=$message" -F "priority=2"
+curl "${GOTIFY_URL}" -F "title=${title}" -F "message=${message}" -F "priority=2"
